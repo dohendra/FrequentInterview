@@ -1,9 +1,21 @@
-import React from 'react';
+// import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import SuccessPage from './pages/SuccessPage';
 
-function App() {
+const App = () => {
   return (
-    <div><h1 className="text-red-500 text-4xl mt-4">App</h1></div>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/success" element={<SuccessPage />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
