@@ -33,7 +33,7 @@ router.get('/states/:country', async (req, res) => {
         Accept: 'application/json'
       }
     });
-    res.json(response.data);
+       res.json(response.data);
   } catch (error) {
     res.status(500).send(error.message);
   }

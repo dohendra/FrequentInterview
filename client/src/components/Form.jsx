@@ -1,5 +1,5 @@
 import  { useContext } from 'react';
-import { TextInput, Dropdown, RadioButtonGroup, DateInput } from './Inputs';
+import { TextInput, Dropdown, RadioButtonGroup, DateInput } from './Input';
 import { FormContext } from './FormContext'; // Adjust the import path as necessary
 import axios from 'axios';
 

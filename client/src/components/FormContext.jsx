@@ -23,10 +23,13 @@ export const FormProvider = ({ children }) => {
   useEffect(() => {
     const fetchCountries = async () => 
     {
-      const response = await axios.get('/api/countries');
+    //   const response = await axios.get('/api/countries');
+    
+    const response = await axios.get('http://localhost:3000/api/countries');
+
+      console.log(response.data);
       setCountries(response.data.map((country) => country.country_name));
     };
-
     fetchCountries();
   }, []);
 
@@ -77,7 +80,7 @@ export const FormProvider = ({ children }) => {
   };
 
   return (
-      <FormContext.Provider value={{contextValue}}>
+      <FormContext.Provider value={contextValue}>
       {children}
     </FormContext.Provider>
   );
