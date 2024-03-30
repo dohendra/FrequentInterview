@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-// Define the User schema
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -37,7 +36,7 @@ const userSchema = new mongoose.Schema({
   gender: {
     type: String,
     required: true,
-    enum: ['Male', 'Female', 'Other']
+    enum: ['Male', 'Female', 'Other'],
   },
   dateOfBirth: {
     type: Date,
@@ -58,6 +57,6 @@ userSchema.virtual('age').get(function()
   return age;
 });
 
-// Create the model from the schema and export it
+// Creating the model from the schema and export it
 const User = mongoose.model('User', userSchema);
 export default User;

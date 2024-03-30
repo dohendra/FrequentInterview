@@ -55,7 +55,8 @@ export const FormProvider = ({ children }) => {
   
   
     // Age calculation function
-    const calculateAge = (date) => {
+  const calculateAge = (date) => 
+    {
       const birthday = new Date(date);
       const ageDifMs = Date.now() - birthday.getTime();
       const ageDate = new Date(ageDifMs);
@@ -63,7 +64,8 @@ export const FormProvider = ({ children }) => {
     };
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({
+    
+    setFormData((prevFormData) =>({
       ...prevFormData,
       [name]: value,
       ...(name === 'dateOfBirth' && { age: calculateAge(value) }),
@@ -72,8 +74,8 @@ export const FormProvider = ({ children }) => {
 
   const contextValue = {
     formData,
-    setFormData,
     handleChange,
+    setFormData,
     countries,
     states,
     cities,

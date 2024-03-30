@@ -40,7 +40,7 @@ router.get('/states/:country', async (req, res) => {
 });
 
 // Fetch cities
-router.get('/cities/:state', async (req, res) => {
+router.get('/cities/:state', validateForm, async (req, res) => {
   try {
     const { state } = req.params;
     const response = await axios.get(`https://www.universal-tutorial.com/api/cities/${state}`, {
@@ -54,11 +54,12 @@ router.get('/cities/:state', async (req, res) => {
     res.status(500).send(error.message);
   }
 });
-router.post('/form-submit', validateForm, async (req, res) => 
-  {
+router.post('/form-submit', async (req, res) => 
+  {   console.log(req.body);
     try 
     {
       const newUser = new User(req.body);
+      console.log(newUser);
       await newUser.save();
       res.status(201).json({ message: 'Data stored successfully', user: newUser });
     } 

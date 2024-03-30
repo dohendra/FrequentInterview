@@ -3,6 +3,8 @@ export const isAlphabet = (input) => /^[A-Za-z]+$/.test(input);
 export const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 export const isValidDateOfBirth = (dob) => {
+  // console.log(typeof dob, dob);
+  
   const today = new Date();
   const birthDate = new Date(dob);
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -10,5 +12,6 @@ export const isValidDateOfBirth = (dob) => {
   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
     age--;
   }
-  return age >= 14 && age <= 99;
+  // console.log(age);
+  return (age >= 14 && age <= 99);
 };

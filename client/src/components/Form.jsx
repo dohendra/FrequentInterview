@@ -1,20 +1,23 @@
 import  { useContext } from 'react';
 import { TextInput, Dropdown, RadioButtonGroup, DateInput } from './Input';
-import { FormContext } from './FormContext'; // Adjust the import path as necessary
+import { FormContext } from './FormContext'; 
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
-  const { formData,  countries, states, cities } = useContext(FormContext);
+  const { formData, countries, states, cities } = useContext(FormContext);
+  const navigate = useNavigate();
+  // console.log(formData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = 'http://localhost:5000/api/form-submit';
+    
+    const endpoint = 'http://localhost:3000/api/form-submit';
     try {
           const response = await axios.post(endpoint, formData);
           console.log('Server Response', response.data);
 
-      // Handle response or perform actions after successful submission here
-      // For example, you could redirect to a success page or reset the form
+          navigate('/success');
     } catch (error) {
       console.error('Error submitting form:', error.response?.data || error.message);
       // Handle errors here, such as showing a notification to the user
