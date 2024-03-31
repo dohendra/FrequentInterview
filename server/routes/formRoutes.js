@@ -1,6 +1,6 @@
 import express from 'express';
 import validateForm from '../middleware/validateForm.js';
-import User from '../models/User.js';
+import User from '../models/user.js';
 import axios from 'axios';
 import dotenv from  'dotenv';
 dotenv.config();

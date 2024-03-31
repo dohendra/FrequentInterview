@@ -7,6 +7,7 @@ const validateForm = (req, res, next) => {
   try {
     if (!isAlphabet(firstName) || !isAlphabet(lastName)) {
       throw new Error('Names must contain alphabets only.');
+      
     }
     if (!isValidEmail(email)) {
       throw new Error('Invalid email format.');
