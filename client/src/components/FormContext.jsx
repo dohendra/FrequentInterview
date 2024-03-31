@@ -23,9 +23,9 @@ export const FormProvider = ({ children }) => {
   useEffect(() => {
     const fetchCountries = async () => 
     {
-    //   const response = await axios.get('/api/countries');
+      const response = await axios.get('/api/countries');
     
-    const response = await axios.get('http://localhost:3000/api/countries');
+    // const response = await axios.get('http://localhost:3000/api/countries');
 
       console.log(response.data);
       setCountries(response.data.map((country) => country.country_name));
@@ -49,7 +49,6 @@ export const FormProvider = ({ children }) => {
       const response = await axios.get(`/api/cities/${formData.state}`);
       setCities(response.data.map((city) => city.city_name));
     };
-
     fetchCities();
   }, [formData.state]);
   
@@ -62,7 +61,8 @@ export const FormProvider = ({ children }) => {
       const ageDate = new Date(ageDifMs);
       return Math.abs(ageDate.getUTCFullYear() - 1970);
     };
-  const handleChange = (e) => {
+  const handleChange = (e) => 
+  {
     const { name, value } = e.target;
     
     setFormData((prevFormData) =>({
@@ -70,6 +70,7 @@ export const FormProvider = ({ children }) => {
       [name]: value,
       ...(name === 'dateOfBirth' && { age: calculateAge(value) }),
     }));
+    // console.log(formData.dateOfBirth);
   };
 
   const contextValue = {
@@ -83,7 +84,7 @@ export const FormProvider = ({ children }) => {
 
   return (
       <FormContext.Provider value={contextValue}>
-      {children}
+              {children}
     </FormContext.Provider>
   );
   

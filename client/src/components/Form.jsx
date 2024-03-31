@@ -7,14 +7,14 @@ import { useNavigate } from 'react-router-dom';
 const Form = () => {
   const { formData, countries, states, cities } = useContext(FormContext);
   const navigate = useNavigate();
-  // console.log(formData);
-
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    // console.log(formData.dateOfBirth);
     const endpoint = 'http://localhost:3000/api/form-submit';
     try {
-          const response = await axios.post(endpoint, formData);
+          const response = await axios.post(endpoint, formData);          
           console.log('Server Response', response.data);
 
           navigate('/success');
